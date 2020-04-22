@@ -1,0 +1,79 @@
+@media only screen and (max-width:1554px) {
+    .project-income-team-sales {
+        float: right;
+        font-size: x-small;
+    }
+    
+    .project-income-individual-sales {
+        float: left;
+        font-size: x-small;
+    }
+    
+    .projected-income-individual-sales-amount {
+        float: left;
+        left: 10%;
+        position: absolute;
+        
+    }
+    
+    .projected-income-team-sales-amount {
+        float: right;
+        right: 8%;
+        position: absolute;
+    }
+}
+
+.centerAmount {
+    right: 42%;
+    position: absolute;
+}
+
+.projected-income-vals{
+    top:50%;
+    position: absolute;
+    // background-color: blue;
+    border-color: aqua;
+    min-width: 87%;
+    border-top: 1px solid;
+}
+
+.cardBody{
+    min-height: 10em;
+}
+
+.leaderboard-card-body {
+    min-height: 10em;
+    max-height: 42em;
+    overflow-y: auto;
+}
+.project-income-team-sales {
+    float: right;
+}
+
+.project-income-individual-sales {
+    float: left;
+}
+
+.projected-income-individual-sales-amount {
+    float: left;
+    left: 10%;
+    position: absolute;
+}
+
+.projected-income-team-sales-amount {
+    float: right;
+    right: 8%;
+    position: absolute;
+}
+
+::ng-deep body{
+    background-color: white;
+    background-image: linear-gradient(180deg, white 10%, white 100%);
+    background-size: cover;
+    
+  }
+
+  .main{
+    width:100%;
+    top: 70px;
+  }

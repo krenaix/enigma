@@ -1,0 +1,34 @@
+<h1>Select a HOT product to continue with registration</h1>
+<div class="pricing-table">
+  
+  <div class="pricing-item" *ngFor="let product of products$ | async" (click)="setProduct(product.id)">
+    <div class="pricing-title">
+      {{product.name}}
+    </div>
+    <div class="pricing-value">R{{product.price}}.<span class="smallText">00</span>
+      <span class="undertext">/Month</span>
+    </div>
+    <ul class="pricing-features" *ngFor="let feature of product.productFeatures">
+      <li>{{feature.benefit}}</li>
+    </ul>
+    <!-- <div class="button">Comprar</div> -->
+  </div>
+  
+  <!-- <div class="pricing-item pricing-featured">
+    <div class='selected'>Recomendado</div>
+    <div class="pricing-title">
+      PRO
+    </div>
+    <div class="pricing-value">R$39.<span class="smallText">90</span>
+      <span class="undertext">/Mês</span>
+    </div>
+    <ul class="pricing-features">
+      <li><span class="keywords">5GB</span> Armazenamento</li>
+      <li>Banda <span class="keywords">ilimitada</span></li>
+      <li><span class="keywords">100 Contas</span> de email</li>
+      <li><span class="keywords">100gb</span> Transferência</li>
+    </ul>
+    <div class="button">Comprar</div>
+  </div> -->
+  
+</div>

@@ -1,0 +1,183 @@
+<!-- Projected Income Card -->
+<div class="row">
+    <div class="col-xl-6 col-md-6 mb-4 centerProjected">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="text-lg font-weight-bold text-primary text-uppercase mb-1 text-center">Projected Income</div>
+            <div class="card-body cardBody"
+                *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingProjected">
+                <div class="row no-gutters align-items-center projected-income-vals">
+                    <div class="col mr-2">
+                        <div class="text-md font-weight-bold text-primary text-uppercase mb-1">
+                            <p class="project-income-individual-sales">Total Downlines</p>
+                            <p class="project-income-team-sales">Income</p>
+                        </div>
+                        <br>
+                        <div class="text-sm mb-0 font-weight-bold text-gray-800">
+                            <p class="projected-income-individual-sales-amount">
+                                {{(dashbaordTotals$ | async).total_downlines}}</p>
+                            <p class="projected-income-team-sales-amount">R {{(dashbaordTotals$ | async).total_downlines_price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #loadingProjected>
+                <div class="card-body cardBody">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- Individual Sales Card -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="text-lg font-weight-bold text-success text-uppercase mb-1 text-center">Level Ones</div>
+            <div class="card-body" *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingIndividuals">
+                <br>
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">
+                            <p class="project-income-individual-sales">Total</p>
+                            <p class="project-income-team-sales">Income</p>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="text-sm mb-0 font-weight-bold text-gray-800">
+                            <p class="projected-income-individual-sales-amount">
+                                {{(dashbaordTotals$ | async).level_one_totals}}</p>
+                            <p class="projected-income-team-sales-amount">R {{(dashbaordTotals$ | async).level_one_totals_price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #loadingIndividuals>
+                <div class="card-body">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="text-lg font-weight-bold text-info text-uppercase mb-1 text-center">Level Twos</div>
+            <div class="card-body" *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingTeams">
+                <br>
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-info text-uppercase mb-1">
+                            <p class="project-income-individual-sales">Total</p>
+                            <p class="project-income-team-sales">Income</p>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="text-sm mb-0 font-weight-bold text-gray-800">
+                            <p class="projected-income-individual-sales-amount">
+                                {{(dashbaordTotals$ | async).level_two_totals}}</p>
+                            <p class="projected-income-team-sales-amount">R {{(dashbaordTotals$ | async).level_two_totals_price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #loadingTeams>
+                <div class="card-body">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="text-lg font-weight-bold text-danger text-uppercase mb-1 text-center">Level Threes</div>
+            <div class="card-body" *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingTeams">
+                <br>
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">
+                            <p class="project-income-individual-sales">Total</p>
+                            <p class="project-income-team-sales">Income</p>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="text-sm mb-0 font-weight-bold text-gray-800">
+                            <p class="projected-income-individual-sales-amount">
+                                {{(dashbaordTotals$ | async).level_three_totals}}</p>
+                            <p class="projected-income-team-sales-amount">R {{(dashbaordTotals$ | async).level_three_totals_price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #loadingTeams>
+                <div class="card-body">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="text-lg font-weight-bold text-warning text-uppercase mb-1 text-center">Level Fours</div>
+            <div class="card-body" *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingTeams">
+                <br>
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">
+                            <p class="project-income-individual-sales">Total</p>
+                            <p class="project-income-team-sales">Income</p>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="text-sm mb-0 font-weight-bold text-gray-800">
+                            <p class="projected-income-individual-sales-amount">
+                                {{(dashbaordTotals$ | async).level_four_totals}}</p>
+                            <p class="projected-income-team-sales-amount">R {{(dashbaordTotals$ | async).level_four_totals_price}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #loadingTeams>
+                <div class="card-body">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+    <!-- <div class="col-xl-3 col-md-6 mb-4" *ngIf="clientPayingPercentage">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="text-lg font-weight-bold text-warning text-uppercase mb-1 text-center">% Of Paying Clients</div>
+            <div class="card-body" *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingPayingPercentage">
+                <br>
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+                                    {{(dashbaordTotals$ | async).agentClientPayingPercentage}}</div>
+                            </div>
+                            <div class="col">
+                                <div class="progress progress-sm mr-2">
+                                    <div class="progress-bar bg-info" role="progressbar"
+                                        [style.width]="(dashbaordTotals$ | async).agentClientPayingPercentage"
+                                        [attr.aria-valuenow]="(dashbaordTotals$ | async).agentClientPayingPercentage"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #loadingPayingPercentage>
+                <div class="card-body">
+                    <mat-spinner></mat-spinner>
+                </div>
+            </ng-template>
+        </div>
+    </div> -->
+
+</div>

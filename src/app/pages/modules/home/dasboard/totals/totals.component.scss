@@ -1,0 +1,66 @@
+@media only screen and (max-width:1554px) {
+    .project-income-team-sales {
+        float: right;
+        font-size: x-small;
+    }
+    
+    .project-income-individual-sales {
+        float: left;
+        font-size: x-small;
+    }
+    
+    .projected-income-individual-sales-amount {
+        float: left;
+        left: 10%;
+        position: absolute;
+        
+    }
+    
+    .projected-income-team-sales-amount {
+        float: right;
+        right: 8%;
+        position: absolute;
+    }
+}
+
+.centerAmount {
+    right: 42%;
+    position: absolute;
+}
+
+.projected-income-vals{
+    top:50%;
+    position: absolute;
+    // background-color: blue;
+    border-color: aqua;
+    min-width: 87%;
+    border-top: 1px solid;
+}
+
+.cardBody{
+    min-height: 10em;
+}
+.project-income-team-sales {
+    float: right;
+}
+
+.project-income-individual-sales {
+    float: left;
+}
+
+.projected-income-individual-sales-amount {
+    float: left;
+    left: 10%;
+    position: absolute;
+}
+
+.projected-income-team-sales-amount {
+    float: right;
+    right: 8%;
+    position: absolute;
+}
+
+.centerProjected {
+    position: relative;
+    left: 25%;
+}

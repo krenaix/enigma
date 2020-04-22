@@ -1,0 +1,95 @@
+<div id="perDiv">
+    <div class="row">
+        <div class="col-md-10 offset-sm-2">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input [formControl]="fcCellNumber" matInput placeholder="Cell Number" (change)="pasted($event)"
+                            required>
+                        <mat-error *ngIf="fcCellNumber.hasError('required')">Cellphone number is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input [formControl]="fcReferrerCellNumber" matInput placeholder="Referrer Cell Number"
+                            (change)="pasted($event)" required>
+                        <mat-error *ngIf="fcReferrerCellNumber.hasError('required')">Referrer cellphone number is
+                            required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <mat-label>Title</mat-label>
+                        <mat-select [formControl]="fcTitleId" required>
+                            <mat-option *ngFor="let title of titles$ | async" [value]="title.id">
+                                {{title.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="fcTitleId.hasError('required')">Please select a title</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input [formControl]="fcName" matInput placeholder="Name" (change)="pasted($event)" required>
+                        <mat-error *ngIf="fcName.hasError('required')">Name is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input [formControl]="fcSurname" matInput placeholder="Surname" (change)="pasted($event)"
+                            required>
+                        <mat-error *ngIf="fcSurname.hasError('required')">Surname is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <mat-label>Select Gender</mat-label>
+                        <mat-select [disabled]="fcId.valid" [formControl]="fcGender" required>
+                            <mat-option *ngFor="let gender of genders$ | async" [value]="gender.id"
+                                [disabled]="idGender.value === gender.name">{{gender.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="fcGender.hasError('required')">Please choose a gender</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input [formControl]="fcId" matInput placeholder="ID Number" minLength="13" maxLength="13"
+                            (change)="pasted($event)" required>
+                             
+                        <mat-error *ngIf="fcId.hasError('required')">ID Number is required</mat-error>
+                        <mat-error *ngIf="fcId.errors?.invalidIdNumberLength">Invalid ID Number. SA ID number length
+                            should
+                            be
+                            13 digits long</mat-error>
+                        <mat-error *ngIf="fcId.errors?.invalidIdNumberMonth">Invalid ID Number. Invalid Month
+                        </mat-error>
+                        <mat-error *ngIf="fcId.errors?.invalidIdNumberDay">Invalid ID Number. Invalid Day</mat-error>
+                        <mat-error *ngIf="fcId.errors?.invalidDayMonthCombination">Invalid ID Number. Incorrect Day
+                            Month
+                            combination</mat-error>
+                        <mat-error *ngIf="fcId.errors?.invalidCitizenshipIndicator">Invalid ID Number. Incorrect
+                            Citizenship
+                            indicator</mat-error>
+                        <mat-error *ngIf="fcId.errors?.invalidDataType">Invalid ID Number. ID Number cannot contain non
+                            numeric
+                            characters</mat-error>
+                        <mat-error *ngIf="fcId.errors?.invalidFormat">Invalid ID Number, check that the ID conforms to
+                            SA ID
+                            format</mat-error>
+                    </mat-form-field>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<mat-progress-bar *ngIf="(loginStatus$ | async) === statusEnum.Busy" mode="query" ></mat-progress-bar>
+<div class="bg-gradient-primary centre">
+  <div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Welcome</h1>
+                  </div>
+                  <form class="user" [formGroup]="lgForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <mat-form-field class="full-width">
+                          <input formControlName="lgEmail" matInput placeholder="Email">
+                          <mat-error *ngIf="lgForm.get('lgEmail').hasError('required')">Please enter your email address
+                          </mat-error>
+                          <mat-error *ngIf="lgForm.get('lgEmail').hasError('email')">Please enter a valid email address
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-group">
+                        <mat-form-field class="full-width">
+                          <input type="password" formControlName="lgPassword" matInput placeholder="Password">
+                          <mat-error *ngIf="lgForm.get('lgPassword').hasError('required')">Please enter your password
+                          </mat-error>
+                      </mat-form-field>
+                    </div>
+                    <button type="submit" [disabled] = "!lgForm.valid" class="btn btn-primary btn-user btn-block">
+                      Login
+                    </button>
+                    <span></span>
+                  </form>
+                  <div class="text-center" *ngIf="(loginStatus$ | async) === statusEnum.Failed">
+                    <p class="invalid">Oops something went wrong during login, please check that you have supplied the correct email and password.</p>
+                    <p class="invalid">If the problem persist please email <a href="#">dazzletechnologies@support.com</a> or give us a call on <a href="#">074 647 7427</a>.</p>
+                  </div>
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="" [routerLink]="['../forgot-password']"
+                      routerLinkActive="router-link-active">Forgot password?</a>
+                  </div>
+                  <hr>
+                  <!-- <div class="text-center">
+                    <a class="small" href="" [routerLink]="['../signup']"
+                      routerLinkActive="router-link-active">Register</a>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

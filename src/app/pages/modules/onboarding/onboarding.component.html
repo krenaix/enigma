@@ -1,0 +1,37 @@
+<div class="row logo_div">
+  <div class="col-md-12 d-none d-lg-block">
+    <img src="../../../../assets/images/AOH3.svg" class="logo_image">
+  </div>
+</div>
+<div class="row contain">
+  <mat-progress-bar *ngIf="(onboardingStatus$ | async) === status.Busy" mode="query" ></mat-progress-bar>
+
+  <main class="col-md-10 main offset-sm-1">
+    <!-- <router-outlet></router-outlet> -->
+    <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
+      <mat-step [stepControl]="fcProductId">
+        <ng-template matStepLabel>Select a HOT product</ng-template>
+        <app-product-selection [formControl]="fcProductId"></app-product-selection>
+      </mat-step>
+      <mat-step [stepControl]="fcPersonalDetails">
+        <ng-template matStepLabel>Personal Details</ng-template>
+        <app-enigma-onboarding-personal-details [formControl]="fcPersonalDetails">
+        </app-enigma-onboarding-personal-details>
+        <div class="col-md-10 offset-sm-2">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+      <mat-step [stepControl]="fcBankDetails">
+        <ng-template matStepLabel>Bank Details</ng-template>
+        <app-enigma-onboarding-bank-details [formControl]="fcBankDetails"></app-enigma-onboarding-bank-details>
+        <div class="col-md-10 offset-sm-2">
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button class="btn-primary submit" [disabled]="!fcBankDetails.valid" (click)="submit()">Submit</button>
+        </div>
+      </mat-step>
+
+    </mat-horizontal-stepper>
+  </main>
+</div>

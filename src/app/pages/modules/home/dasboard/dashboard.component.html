@@ -1,0 +1,51 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard: AOH - Network Downlines - Statistics</h1>
+        <div class="col-auto">
+            <i class="fas fa-clipboard-list fa-2x chart-items col-xl-1 col-md-1"
+                [class.active-chart-item]="(activeChart$ | async) === chartEnum.Totals"></i>
+            <i class="col-xl-1 col-md-1"></i>
+            <i class="fas fa-chart-area fa-2x chart-items col-xl-1 col-md-1"
+                [class.active-chart-item]="(activeChart$ | async) === chartEnum.Charts"></i>
+        </div>
+    </div>
+      <!--totals go here-->
+      <app-totals></app-totals>
+      <!--table goes here-->
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card  shadow h-100 py-2">
+                <div class="text-lg font-weight-bold text-gray-800 text-uppercase mb-1 text-center">{{today | date:'MMMM'}} - Sales Leaderboard</div>
+              <div class="card-body leaderboard-card-body" *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingMonthLeaderships">
+                <app-direct-downlines [inDataSource]="(downlines$ | async).monthSalesLeaderboard"></app-direct-downlines>
+              </div>
+              <ng-template #loadingMonthLeaderships>
+                <div class="card-body leaderboard-card-body">
+                  <mat-spinner></mat-spinner>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+  
+          <div class="col-xl-6 col-md-6 mb-4">
+              <div class="card  shadow h-100 py-2">
+                  <div class="text-lg font-weight-bold text-gray-800 text-uppercase mb-1 text-center">Overall - Sales Leaderboard</div>
+                <div class="card-body leaderboard-card-body" *ngIf="(dashboardLoadStatus$ | async) === status.Done; else loadingOverallLeaships">
+                    <app-direct-downlines [inDataSource]="(downlines$ | async).overallSalesLeaderboard"></app-direct-downlines>
+                </div>
+                <ng-template #loadingOverallLeaships>
+                  <div class="card-body leaderboard-card-body">
+                    <mat-spinner></mat-spinner>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+    </div>
+</div>
+<!-- /.container-fluid -->

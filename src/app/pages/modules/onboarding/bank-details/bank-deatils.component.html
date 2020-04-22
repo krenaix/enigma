@@ -1,0 +1,69 @@
+<!-- <hr class="hr-text" data-content="Banking details"> -->
+<!-- <br> -->
+<div id="bankDiv">
+    <div class="row">
+        <div class="col-md-10 offset-sm-2">
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input type="number" [formControl]="fcAccNumber" matInput placeholder="Account number"
+                            (change)="pasted($event)" required>
+                        <mat-error *ngIf="fcAccNumber.hasError('required')">Account number is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input [formControl]="fcaccHolderName" matInput placeholder="Account holder name"
+                            (change)="pasted($event)" required>
+                        <mat-hint>Name of person who owns the account</mat-hint>
+                        <mat-error *ngIf="fcaccHolderName.hasError('required')">Account holder name is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <mat-label>Bank name</mat-label>
+                        <mat-select [formControl]="fcBankName" required>
+                            <mat-option *ngFor="let  bank of banks$ | async" [value]="bank.name">
+                                {{bank.description}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="fcBankName.hasError('required')">Please select the bank</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <mat-label>Account type</mat-label>
+                        <mat-select [formControl]="fcAccountTypeId" required>
+                            <mat-option *ngFor="let accountType of accountTypes$ | async" [value]="accountType.id">
+                                {{accountType.description}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="fcAccountTypeId.hasError('required')">Please select the type account type
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field class="matField">
+                        <input type="number" [formControl]="fcDebitOrderDay" matInput placeholder="Debit order day"
+                            max="31" min="1" (change)="pasted($event)" required>
+                        <mat-error *ngIf="fcDebitOrderDay.hasError('required')">Day of debit order is required
+                        </mat-error>
+                        <mat-error *ngIf="fcDebitOrderDay.errors?.minLength">Day of debit order cannot be less than 1
+                        </mat-error>
+                        <mat-error *ngIf="fcDebitOrderDay.errors?.maxLength">Day of debit order cannot be greater than
+                            31
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
